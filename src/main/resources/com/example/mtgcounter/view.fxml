@@ -3,17 +3,34 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+<HBox spacing="30.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.mtgcounter.ButtonHandler">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+    <VBox spacing="20.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        </padding>
 
-    <Label fx:id="leftHealth"/>
-    <Button text="+1" onAction="#onLeftButtonClickIncreaseOne"/>
-    <Button text="+5" onAction="#onLeftButtonClickIncreaseFive"/>
+        <Label fx:id="leftHealth" text="20"/>
+        <Button text="+1" onAction="#onLifeButtonClick" userData="+1,left"/>
+        <Button text="+5" onAction="#onLifeButtonClick" userData="+5,left"/>
+        <Button text="-1" onAction="#onLifeButtonClick" userData="-1,left"/>
+        <Button text="-5" onAction="#onLifeButtonClick" userData="-5,left"/>
+        <Button text="Reset" onAction="#onLifeButtonClick" userData="1337,left"/>
+    </VBox>
 
-    <Label fx:id="rightHealth"/>
-</VBox>
+    <VBox alignment="TOP_RIGHT" spacing="20.0">
+        <padding>
+            <Insets bottom="20.0" left="70.0" right="20.0" top="20.0"/>
+        </padding>
+
+        <Label fx:id="rightHealth" text="20"/>
+        <Button text="+1" onAction="#onLifeButtonClick" userData="+1,right"/>
+        <Button text="+5" onAction="#onLifeButtonClick" userData="+5,right"/>
+        <Button text="-1" onAction="#onLifeButtonClick" userData="-1,right"/>
+        <Button text="-5" onAction="#onLifeButtonClick" userData="-5,right"/>
+        <Button text="Reset" onAction="#onLifeButtonClick" userData="1337,right"/>
+    </VBox>
+</HBox>
